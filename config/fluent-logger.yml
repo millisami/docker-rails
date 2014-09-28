@@ -1,0 +1,14 @@
+common: &common
+  fluent_host:   <%= ENV.fetch('FLUENTD_PORT_24224_TCP_ADDR', '127.0.0.1') %>
+  fluent_port:   <%= ENV.fetch('FLUENTD_PORT_24224_TCP_PORT', '24224') %>
+  tag:           'foo'
+  messages_type: 'string'
+
+development:
+  <<: *common
+
+test:
+  <<: *common
+
+production:
+  <<: *common
